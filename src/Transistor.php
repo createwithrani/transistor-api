@@ -1,6 +1,6 @@
 <?php
 
-namespace Aurooba\Transistor;
+namespace CreateWithRani\Transistor;
 
 /**
  * A minimal abstracted Transistor API wrapper

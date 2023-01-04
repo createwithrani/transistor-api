@@ -19,7 +19,7 @@ DRAFT
 This is a bunch of stuff that will become relevant once the API wrapper is complete.
 
 ```
-composer require aurooba/mailchimp-api
+composer require createwithrani/mailchimp-api
 ```
 
 You will then need to:
