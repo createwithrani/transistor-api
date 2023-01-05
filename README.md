@@ -50,7 +50,7 @@ You can see your own user details with a wrapper-specific call:
 ```php
 $user_details = $transistor->user();
 
-print_r( $user_details);
+print_r( $user_details );
 ```
 Then you can list all the shows you have access to:
 
