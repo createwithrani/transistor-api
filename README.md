@@ -10,7 +10,7 @@ Requires PHP 7.4+.
 Installation
 ------------
 
-You will be able to install transistor-api using Composer, once it's ready.
+You will be able to install `transistor-api` using Composer, once it's ready.
 
 <!--
 
@@ -36,14 +36,45 @@ include('./Transistor.php');
 Examples
 --------
 
-Start by `use`-ing the class and creating an instance with your API key
+Begin by `use`-ing the class and creating an instance with your API key:
 
 ```php
 use \CreateWithRani\Transistor\Transistor;
 
-$Transistor = new Transistor('lD8123432345434543');
+$transistor = new Transistor('lD8123432345434543');
+```
+You can see your own user details with a wrapper-specific call:
+
+```php
+$user_details = $transistor->user();
+
+print_r( $user_details);
+```
+Then you can list all the shows you have access to:
+
+```php
+$shows = $transistor->get( 'shows' );
+
+print_r( $shows );
 ```
 
+Get the details of a specific show by ID
+
+```php
+
+$show = $transistor->get( 'shows/id' );
+
+print_r( $show );
+```
+Get a list of the episodes in your show
+
+```php
+$episodes = $transistor->get( 'episodes', array(
+	'show_id' => show_id
+) );
+
+print_r( $episodes );
+```
 
 Troubleshooting
 ---------------
@@ -51,19 +82,19 @@ Troubleshooting
 To get the last error returned by either the HTTP client or by the API, use `get_last_error()`:
 
 ```php
-echo $Transistor->get_last_error();
+echo $transistor->get_last_error();
 ```
 
 For further debugging, you can inspect the headers and body of the response:
 
 ```php
-print_r($Transistor->get_last_response());
+print_r($transistor->get_last_response());
 ```
 
 If you suspect you're sending data in the wrong format, you can look at what was sent to Transistor by the wrapper:
 
 ```php
-print_r($Transistor->get_last_request());
+print_r($transistor->get_last_request());
 ```
 
 Contributing
