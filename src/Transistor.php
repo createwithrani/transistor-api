@@ -47,6 +47,10 @@ class Transistor {
 		);
 	}
 
+	public function user() {
+		return $this->make_curl_request( 'get' );
+	}
+
 	/**
 	 * Array of headers and body of your last request
 	 *
@@ -145,7 +149,7 @@ class Transistor {
 	 *
 	 * @return array|bool The response or false on failure
 	 */
-	private function make_curl_request( $verb, $method, $args, $timeout ) {
+	private function make_curl_request( $verb, $method = false, $args = array(), $timeout = self::TIMEOUT ) {
 		// set up the request URL
 		$url = $this->api_url . $method;
 
@@ -155,7 +159,7 @@ class Transistor {
 		$http_header = array(
 			'Accept: application/vnd.api+json',
 			'Content-Type: application/vnd.api+json',
-			'Authorization: apikey ' . $this->api_key,
+			'x-api-key: ' . $this->api_key,
 		);
 
 		if ( 'put' === $verb ) {
@@ -166,20 +170,25 @@ class Transistor {
 		$handle = curl_init();
 		curl_setopt( $handle, CURLOPT_URL, $url );
 		curl_setopt( $handle, CURLOPT_HTTPHEADER, $http_header );
-		curl_setopt( handle, CURLOPT_USERAGENT, 'CreateWithRani/Transistor-API/1.0 (github.com/createwithrani/transistor-api)' );
+		curl_setopt( $handle, CURLOPT_USERAGENT, 'CreateWithRani/Transistor-API/1.0 (github.com/createwithrani/transistor-api)' );
 		curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
-		curl_setopt( handle, CURLOPT_VERBOSE, true );
-		curl_setopt( handle, CURLOPT_HEADER, true );
-		curl_setopt( handle, CURLOPT_TIMEOUT, $timeout );
-		curl_setopt( handle, CURLOPT_SSL_VERIFYPEER, $this->verify_ssl );
-		curl_setopt( handle, CURLOPT_ENCODING, '' );
-		curl_setopt( handle, CURLINFO_HEADER_OUT, true );
+		curl_setopt( $handle, CURLOPT_VERBOSE, true );
+		curl_setopt( $handle, CURLOPT_HEADER, true );
+		curl_setopt( $handle, CURLOPT_TIMEOUT, $timeout );
+		curl_setopt( $handle, CURLOPT_SSL_VERIFYPEER, $this->verify_ssl );
+		curl_setopt( $handle, CURLOPT_ENCODING, '' );
+		curl_setopt( $handle, CURLINFO_HEADER_OUT, true );
 
 		// set up the HTTP verb-specific options
 		switch ( $verb ) {
 			case 'get':
-				$query = http_build_query( $args, '', '&' );
-				curl_setopt( $HANDLE, CURLOPT_URL, $url . '?' . $query );
+				if ( empty( $args ) ) {
+					curl_setopt( $handle, CURLOPT_URL, $url );
+				} else {
+					$query = http_build_query( $args, '', '&' );
+					curl_setopt( $handle, CURLOPT_URL, $url . '?' . $query );
+				}
+
 				break;
 
 			case 'post':
@@ -198,10 +207,10 @@ class Transistor {
 		}
 
 		// make the request
-		$response            = curl_exec( $handle );
+		$response_content            = curl_exec( $handle );
 		$response['headers'] = curl_getinfo( $handle );
 		$response            = $this->set_response_state( $response, $response_content, $handle );
-		$formatted_response  = $this->formatResponse( $response );
+		$formatted_response  = $this->format_response( $response );
 
 		// store the request info
 		$this->last_request = array(
