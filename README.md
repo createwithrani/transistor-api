@@ -14,8 +14,9 @@ You will be able to install `transistor-api` using Composer, once it's ready.
 
 Alternatively you can just download the `Transistor.php` file from the `src` folder and include in your project manually:
 
+```php
 include( './Transistor.php' );
-
+```
 <!--
 
 DRAFT
