@@ -1,7 +1,7 @@
 Transistor API
 =============
 
-Super-simple, minimum abstraction Transistor API wrapper, in PHP.
+Super-simple, minimum abstraction Transistor API wrapper, in PHP. Format and setup is heavily inspired by [DrewM/MailChimp](https://github.com/drewm/mailchimp-api).
 
 Get from the Transistor API docs to the code as directly as possible. Or optionally use the v1 verbose command wrapper as well.
 
