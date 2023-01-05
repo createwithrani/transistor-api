@@ -3,7 +3,7 @@
 namespace CreateWithRani\Transistor;
 
 /**
- * A minimal abstracted Transistor API wrapper
+ * A minimally abstracted Transistor API v1 wrapper
  * Transistor API: https://developers.transistor.fm/
  * This wrapper: https://github.com/aurooba/transistor-api
  *
@@ -166,7 +166,7 @@ class Transistor {
 		$handle = curl_init();
 		curl_setopt( $handle, CURLOPT_URL, $url );
 		curl_setopt( $handle, CURLOPT_HTTPHEADER, $http_header );
-		curl_setopt( handle, CURLOPT_USERAGENT, 'CreateWithRani/Transistor-API/ (github.com/createwithrani/transistor-api)' );
+		curl_setopt( handle, CURLOPT_USERAGENT, 'CreateWithRani/Transistor-API/1.0 (github.com/createwithrani/transistor-api)' );
 		curl_setopt( $handle, CURLOPT_RETURNTRANSFER, true );
 		curl_setopt( handle, CURLOPT_VERBOSE, true );
 		curl_setopt( handle, CURLOPT_HEADER, true );
