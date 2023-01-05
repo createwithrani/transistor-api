@@ -33,8 +33,10 @@ include('./Transistor.php');
 /END NOT READY
 * * *
 -->
-Examples
+Usage and Examples
 --------
+
+You can `POST`, `GET`, `DELETE`, and `PATCH` using this API, depending on the permissions your user has within Transistor.
 
 Begin by `use`-ing the class and creating an instance with your API key:
 
