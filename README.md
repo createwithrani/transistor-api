@@ -60,7 +60,7 @@ $shows = $transistor->get( 'shows' );
 print_r( $shows );
 ```
 
-Get the details of a specific show by ID
+Get the details of a specific show by ID:
 
 ```php
 
@@ -68,7 +68,7 @@ $show = $transistor->get( 'shows/id' );
 
 print_r( $show );
 ```
-Get a list of the episodes in your show
+Get a list of the episodes in your show:
 
 ```php
 $episodes = $transistor->get( 'episodes', array(
