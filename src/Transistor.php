@@ -271,8 +271,8 @@ class Transistor {
 	/**
 	 * Encode data and attach it to the request
 	 *
-	 * @param   resource $handle   cURL session handle, used by reference
-	 * @param   array    $data Assoc array of data to attach
+	 * @param resource $handle   cURL session handle, used by reference
+	 * @param array    $data Assoc array of data to attach
 	 */
 	private function attach_encoded_data( &$handle, $data ) {
 		$encoded                    = json_encode( $data );
@@ -341,7 +341,7 @@ class Transistor {
 	 *
 	 * @param array $response The response from the request
 	 *
-	 * @return array|false    The JSON decoded into an array
+	 * @return array|false The JSON decoded into an array
 	 */
 	private function format_response( $response ) {
 		$this->last_response = $response;
