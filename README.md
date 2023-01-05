@@ -3,9 +3,9 @@ Transistor API
 
 Super-simple, minimum abstraction Transistor API wrapper, in PHP.
 
-I hate complex wrappers. This lets you get from the Transistor API docs to the code as directly as possible.
+Get from the Transistor API docs to the code as directly as possible. Or optionally use the v1 verbose command wrapper as well.
 
-Requires PHP 7.4+ and a pulse.
+Requires PHP 7.4+.
 
 Installation
 ------------
@@ -15,8 +15,6 @@ You will be able to install transistor-api using Composer, once it's ready.
 <!--
 
 DRAFT
-
-This is a bunch of stuff that will become relevant once the API wrapper is complete.
 
 ```
 composer require createwithrani/mailchimp-api
@@ -34,16 +32,16 @@ include('./Transistor.php');
 
 /END NOT READY
 * * *
-
+-->
 Examples
 --------
 
 Start by `use`-ing the class and creating an instance with your API key
 
 ```php
-use \Aurooba\Transistor\Transistor;
+use \CreateWithRani\Transistor\Transistor;
 
-$Transistor = new Transistor('abc123abc123abc123abc123abc123-us1');
+$Transistor = new Transistor('lD8123432345434543');
 ```
 
 
@@ -71,8 +69,8 @@ print_r($Transistor->get_last_request());
 Contributing
 ------------
 
-This is a pretty simple wrapper. If you'd like to suggest an improvement, please raise an issue to discuss it before making your pull request.
+This is a pretty simple wrapper with an optionally more verbose commands class if you want/need something easier than going straight to the API.
+
+Feel free to suggest an improvement by creating an issue.
 
 Pull requests for bugs are more than welcome - please explain the bug you're trying to fix in the message.
-
--->
