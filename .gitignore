@@ -1,2 +1,6 @@
 .DS_Store
 hello.php
+/vendor
+
+.phpunit.result.cache
+composer.lock
