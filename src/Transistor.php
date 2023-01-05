@@ -91,7 +91,7 @@ class Transistor {
 	 * Make a DELETE request
 	 *
 	 * @param string $method The API method to be called
-	 * @param array $args Arguments to be passed to the method as an associative array (optional	)
+	 * @param array $args Arguments to be passed to the method as an associative array (optional    )
 	 * @param int $timeout Timeout for the request (optional)
 	 *
 	 * @return array|bool The response or false on failure
@@ -207,7 +207,7 @@ class Transistor {
 		}
 
 		// make the request
-		$response_content            = curl_exec( $handle );
+		$response_content    = curl_exec( $handle );
 		$response['headers'] = curl_getinfo( $handle );
 		$response            = $this->set_response_state( $response, $response_content, $handle );
 		$formatted_response  = $this->format_response( $response );
