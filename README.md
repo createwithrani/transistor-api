@@ -90,13 +90,13 @@ echo $transistor->get_last_error();
 For further debugging, you can inspect the headers and body of the response:
 
 ```php
-print_r($transistor->get_last_response());
+print_r( $transistor->get_last_response() );
 ```
 
 If you suspect you're sending data in the wrong format, you can look at what was sent to Transistor by the wrapper:
 
 ```php
-print_r($transistor->get_last_request());
+print_r( $transistor->get_last_request() );
 ```
 
 Contributing
